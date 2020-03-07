@@ -1,9 +1,12 @@
 package ru.geekbrains.java.leve1.tictactoe;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.File;
+import java.io.IOException;
 import java.util.Random;
 
 public class Map extends JPanel {
@@ -31,6 +34,7 @@ public class Map extends JPanel {
 
     Map() {
         setBackground(Color.blue);
+
         addMouseListener(new MouseAdapter() {
             @Override
             public void mouseReleased(MouseEvent e) {
@@ -149,6 +153,7 @@ public class Map extends JPanel {
     }
 
     void render(Graphics g) {
+
         if(!isInitialized) return;
 
         int panelWidth = getWidth();
@@ -170,7 +175,9 @@ public class Map extends JPanel {
             g.drawLine(x,0,x, panelHeight);
         }
 
-        g.setColor(Color.DARK_GRAY);
+       g.setColor(Color.DARK_GRAY);
+
+
         for (int i = 0; i < fieldSizeY; i++) {
             for (int j = 0; j < fieldSizeX; j++) {
                 if (field[j][i] != EMPTY_DOT) {
